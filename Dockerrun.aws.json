@@ -1,0 +1,35 @@
+{
+    "AWSEBDockerrunVersion": "",
+    "containerDefinitions": [
+        {   "name": "client",
+            "image": "giakoumis/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {   "name": "server",
+            "image": "giakoumis/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {   "name": "worker",
+            "image": "giakoumis/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {   "name": "nginx",
+            "image": "giakoumis/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client","server"]
+                
+            
+        }
+
+    ]
+}
