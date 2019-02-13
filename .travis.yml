@@ -10,7 +10,7 @@ script:
 
 after_success:
   - docker build -t giakoumis/multi-client ./client
-  - docker build -t giakoumis/multi-nginx ./ngxix
+  - docker build -t giakoumis/multi-nginx ./ngnix
   - docker build -t giakoumis/multi-server ./server
   - docker build -t giakoumis/multi-worker ./worker
   # Log in to the docker CLI
